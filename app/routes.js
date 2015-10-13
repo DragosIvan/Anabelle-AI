@@ -2,16 +2,16 @@
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
 
 var fs = require('fs');
-var mysql     = require('mysql');
+var mysql = require('mysql');
 
 // expose the routes to our app with module.exports
 module.exports = function(app) {
 
-  app.post('/api/homepage', function(req, res) {
+  app.post('/api/anabelle', function(req, res) {
     
-    console.log(req.body.inputField);
+    console.log(req.body.message);
 
-    res.json(req.body.inputField);
+    res.json({message: 'Done'});
   });
           
   // application -------------------------------------------------------------

@@ -30,7 +30,22 @@ $(document).ready(function() {
 		{
 	        case 13:
 	        	repeatRedAround();
+	        	var data = {
+	        		message: $('.anabelle-input').val()
+	        	}
+
 	        	$('.anabelle-input').val('');
+
+	        	$.ajax({
+	        		method: "POST",
+	        		url: '/api/anabelle',
+	        		data: data,
+	        		success: function(p1, p2) {
+	        			console.log(p1);
+	        			console.log(p2);
+	        		}
+	        	})
+
 	        	break;
 		};
     }, false);
