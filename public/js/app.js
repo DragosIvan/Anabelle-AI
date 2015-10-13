@@ -4,9 +4,9 @@ angular.module('EDeC', ['ngCookies', 'ngResource', 'ngMessages', 'ngRoute', 'mgc
 		$locationProvider.html5Mode(true);
 
 		$routeProvider
-			.when('/homepage', {
-				templateUrl: 'views/homepage.html',
-				controller: 'HomepageCtrl'
+			.when('/anabelle', {
+				templateUrl: 'views/anabelle-ai.html',
+				controller: 'AnabelleCtrl'
 			})
 		  	.otherwise({
 		    	redirectTo: '/homepage'
