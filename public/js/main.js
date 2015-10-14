@@ -24,6 +24,8 @@ $(document).ready(function() {
 		repeatRedAround();
 	}, 2000)
 
+	var i = 0;
+
 	document.addEventListener('keyup', function(e)
     {
 		switch(e.keyCode)
@@ -31,7 +33,8 @@ $(document).ready(function() {
 	        case 13:
 	        	repeatRedAround();
 	        	var data = {
-	        		message: $('.anabelle-input').val()
+	        		message: $('.anabelle-input').val(),
+	        		gatheringData: i
 	        	}
 
 	        	$('.anabelle-input').val('');
@@ -43,6 +46,8 @@ $(document).ready(function() {
 	        		success: function(p1, p2) {
 	        			console.log(p1);
 	        			console.log(p2);
+
+	        			i = p1.gatheringData;
 	        		}
 	        	})
 

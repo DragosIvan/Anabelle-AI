@@ -1,24 +1,97 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<aiml version="1.0.1" encoding="UTF-8"?>
-   
+<aiml>
+   <bot name='Anabelle' />
    <category>
-      <pattern> setName *</pattern>
+      <pattern>SETNAME *</pattern>
       <template>
-         <set name='username'><star/></set>
+         <think><set name='username'><star/></set></think>
       </template>
    </category>
 
    <category>
-      <pattern> setAge *</pattern>
+      <pattern>SETAGE *</pattern>
       <template>
-         <set name='username'><star/></set>
+         <think><set name='age'><star/></set></think>
       </template>
    </category>
 
    <category>
-      <pattern> setOcupation *</pattern>
+      <pattern>SETOCUPATION *</pattern>
       <template>
-         <set name='username'><star/></set>
+         <think><set name='ocupation'><star/></set></think>
+      </template>
+   </category>
+
+   <category>
+      <pattern>SETOLDUSER *</pattern>
+      <template>
+         <set name='OLDUSER'><star/></set>
+      </template>
+   </category>
+
+   <category>
+      <pattern>NAME IS *</pattern>
+      <template>
+         <condition name='OLDUSER' value='NULL'>
+            <random>
+               <li>
+                  Hello <set name='username'><star/></set> ! How old are you ?
+               </li>
+               <li>
+                  <think><set name='username'><star/></set></think>
+                  Nice to meet you ! How old are you ?
+               </li>
+            </random>
+         </condition>
+         <condition name='oldUser' value='true'>
+            Ah, <get name='username' />, welcome back ! How was <get name='ocupation' /> today ?
+         </condition>
+      </template>
+   </category>
+
+   <category>
+      <pattern>WORK PLS *</pattern>
+      <template>
+         <get name='OLDUSER' />
+      </template>
+   </category>
+
+   <category>
+      <pattern>MY NAME IS *</pattern>
+      <template>
+         <srai>NAME IS <star/></srai>
+      </template>
+   </category>
+
+   <category>
+      <pattern>I'M * YEARS OLD'</pattern>
+      <template>
+         <condition name='age' value='null'>
+            <random>
+               <li>
+                  <think><set name='age'><star/></set></think>
+                  And what is your ocupation ?
+               </li>
+               <li>
+                  <set name='age'><star/></set> is a beautiful age. What do you do ?
+               </li>
+            </random>
+         </condition>
+      </template>
+   </category>
+
+   <category>
+      <pattern>* YEARS OLD</pattern>
+      <template>
+         <srai>I'm <star/> years old</srai>
+      </template>
+   </category>
+
+   <category>
+      <pattern>I GO TO *</pattern>
+      <template>
+         <condition name='ocupation' value='null'>
+            And how is <set name='ocupation'><star/></set> ?
+         </condition>
       </template>
    </category>
 
