@@ -1,0 +1,23 @@
+<aiml>
+   <bot name='Anabelle' />
+   <category>
+      <pattern>SETNAME *</pattern>
+      <template>
+         <set name='username'><star/></set>
+      </template>
+   </category>
+
+   <category>
+      <pattern>SETAGE *</pattern>
+      <template>
+         <set name='age'><star/></set>
+      </template>
+   </category>
+
+   <category>
+      <pattern>SETOCUPATION *</pattern>
+      <template>
+         <set name='ocupation'><star/></set>
+      </template>
+   </category>
+</aiml>

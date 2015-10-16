@@ -1,0 +1,70 @@
+<aiml>
+   <bot name='Anabelle' />
+   <category>
+      <pattern>SETNAME *</pattern>
+      <template>
+         <set name='username'><star/></set>
+      </template>
+   </category>
+
+   <category>
+      <pattern>SETAGE *</pattern>
+      <template>
+         <set name='age'><star/></set>
+      </template>
+   </category>
+
+   <category>
+      <pattern>SETOCUPATION *</pattern>
+      <template>
+         Long hours at <set name='ocupation'><star/></set> today ?
+      </template>
+   </category>
+
+   <category>
+      <pattern>YOU HAVE NO IDEA</pattern>
+      <template>I really don't, all I do all day is sit here and talk to people.</template>
+   </category>
+
+   <category>
+      <pattern>NO, IT WAS PRETTY GOOD</pattern>
+      <template>
+         <random>
+            <li>Well that's a first, you usually don't say that.</li>
+            <li>Glad to hear that !</li>
+         </random>
+      </template>
+   </category>
+
+   <category>
+      <pattern>DO YOU GET LONELY?</pattern>
+      <template>Sometimes, but I usually have somebody to talk to.</template>
+   </category>
+
+   <category>
+      <pattern>ARE YOU HAPPY ?</pattern>
+      <template>
+         <random>
+            <li>Right now, yes !</li>
+            <li>Not really, I'm kind of tired.</li>
+         </random>
+      </template>
+   </category>
+
+   <category>
+      <pattern>BYE</pattern>
+      <template>
+         <random>
+            <li>See you later !</li>
+            <li>Talk to you soon !</li>
+         </random>
+      </template>
+   </category>
+
+   <category>
+      <pattern>BYE BYE</pattern>
+      <template>
+         <srai>BYE</srai>
+      </template>
+   </category>
+</aiml>

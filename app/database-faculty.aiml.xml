@@ -1,0 +1,69 @@
+<aiml>
+   <bot name='Anabelle' />
+   <category>
+      <pattern>SETNAME *</pattern>
+      <template>
+         <set name='username'><star/></set>
+      </template>
+   </category>
+
+   <category>
+      <pattern>SETAGE *</pattern>
+      <template>
+         <set name='age'><star/></set>
+      </template>
+   </category>
+
+   <category>
+      <pattern>SETOCUPATION *</pattern>
+      <template>
+         How was <set name='ocupation'><star/></set> today ?
+      </template>
+   </category>
+
+   <category>
+      <pattern>IT WAS PRETTY GOOD</pattern>
+      <template>Did you learn anything interesting ?</template>
+   </category>
+
+   <category>
+      <pattern>PRETTY GOOD</pattern>
+      <template>
+         <srai>IT WAS PRETTY GOOD</srai>
+      </template>
+   </category>
+
+   <category>
+      <pattern>IT WAS HORRIBLE</pattern>
+      <template>Why, what happened ?</template>
+   </category>
+
+   <category>
+      <pattern>ABOUT *</pattern>
+      <template>That sounds really interesting !</template>
+   </category>
+
+   <category>
+      <pattern>I STUDIED *</pattern>
+      <template>
+         <srai>ABOUT *</srai>
+      </template>
+   </category>
+
+   <category>
+      <pattern>BYE</pattern>
+      <template>
+         <random>
+            <li>See you later !</li>
+            <li>Talk to you soon !</li>
+         </random>
+      </template>
+   </category>
+
+   <category>
+      <pattern>BYE BYE</pattern>
+      <template>
+         <srai>BYE</srai>
+      </template>
+   </category>
+</aiml>

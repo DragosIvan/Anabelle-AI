@@ -20,11 +20,8 @@ $(document).ready(function() {
 		$('.anabelle-input').css('opacity', 1);
 	}, 1300);
 
-	setTimeout(function() {
-		repeatRedAround();
-	}, 2000)
-
 	var i = 0;
+	var timeoutVal = 1500;
 
 	document.addEventListener('keyup', function(e)
     {
@@ -37,19 +34,43 @@ $(document).ready(function() {
 	        		gatheringData: i
 	        	}
 
+	        	if (data.message.indexOf('work') > -1 || data.message.indexOf('faculty') > -1) timeoutVal = 0;
+	        	else timeoutVal = 1500;
+
 	        	$('.anabelle-input').val('');
 
-	        	$.ajax({
-	        		method: "POST",
-	        		url: '/api/anabelle',
-	        		data: data,
-	        		success: function(p1, p2) {
-	        			console.log(p1);
-	        			console.log(p2);
+	        	setTimeout(function() {
+	        		$.ajax({
+		        		method: "POST",
+		        		url: '/api/anabelle',
+		        		data: data,
+		        		success: function(response) {
+		        			i = response.gatheringData;
+		        			$('.anabelle-message').css('opacity', 0);
+		        			$('.anabelle-secondary-message').text(response.message);
+		        			setTimeout(function() {
+		        				greenTop();
+		        				$('.anabelle-secondary-message').css({
+									'opacity': 1,
+									'top': 150
+								});
+		        			}, 200);
 
-	        			i = p1.gatheringData;
-	        		}
-	        	})
+		        			setTimeout(function() {
+		        				$('.anabelle-message').text(response.message);
+		        				$('.anabelle-message, .anabelle-secondary-message').css('-webkit-transition:', 'initial');
+		        				$('.anabelle-message').css('opacity', 1);
+		        				$('.anabelle-secondary-message').css('opacity', 0);
+		        				setTimeout(function() {
+		        					$('.anabelle-message, .anabelle-secondary-message').css('-webkit-transition:', 'all .3s ease-in-out');
+		        					$('.anabelle-secondary-message').css('top', 230);
+		        				}, 1100);	
+		        			}, 1000);
+
+		        			console.log(response);
+		        		}
+		        	})
+	        	}, timeoutVal);
 
 	        	break;
 		};
@@ -72,8 +93,8 @@ function greenTop() {
 
 function redAround() {
 	$('#cube .cube-face').css({
-		'background-color': 'rgba(255, 51, 51, 0.5)',
-		'border-color': 'rgba(255, 51, 51, 0.7)'
+		'background-color': 'rgba(255, 204, 0, 0.5)',
+		'border-color': 'rgba(255, 204, 0, 0.7)'
 	});
 	setTimeout(function() {
 		$('#cube .cube-face').css({

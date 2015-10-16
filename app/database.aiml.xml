@@ -1,57 +1,12 @@
 <aiml>
    <bot name='Anabelle' />
    <category>
-      <pattern>SETNAME *</pattern>
-      <template>
-         <think><set name='username'><star/></set></think>
-      </template>
-   </category>
-
-   <category>
-      <pattern>SETAGE *</pattern>
-      <template>
-         <think><set name='age'><star/></set></think>
-      </template>
-   </category>
-
-   <category>
-      <pattern>SETOCUPATION *</pattern>
-      <template>
-         <think><set name='ocupation'><star/></set></think>
-      </template>
-   </category>
-
-   <category>
-      <pattern>SETOLDUSER *</pattern>
-      <template>
-         <set name='OLDUSER'><star/></set>
-      </template>
-   </category>
-
-   <category>
       <pattern>NAME IS *</pattern>
       <template>
-         <condition name='OLDUSER' value='NULL'>
-            <random>
-               <li>
-                  Hello <set name='username'><star/></set> ! How old are you ?
-               </li>
-               <li>
-                  <think><set name='username'><star/></set></think>
-                  Nice to meet you ! How old are you ?
-               </li>
-            </random>
-         </condition>
-         <condition name='oldUser' value='true'>
-            Ah, <get name='username' />, welcome back ! How was <get name='ocupation' /> today ?
-         </condition>
-      </template>
-   </category>
-
-   <category>
-      <pattern>WORK PLS *</pattern>
-      <template>
-         <get name='OLDUSER' />
+         <random>
+            <li>Hello <set name='username'><star/></set> ! My name is Anabelle. How old are you ?</li>
+            <li>Nice to meet you, I'm Anabelle ! How old are you ?</li>
+         </random>
       </template>
    </category>
 
@@ -63,36 +18,26 @@
    </category>
 
    <category>
-      <pattern>I'M * YEARS OLD'</pattern>
+      <pattern>I'M * YEARS OLD</pattern>
       <template>
-         <condition name='age' value='null'>
-            <random>
-               <li>
-                  <think><set name='age'><star/></set></think>
-                  And what is your ocupation ?
-               </li>
-               <li>
-                  <set name='age'><star/></set> is a beautiful age. What do you do ?
-               </li>
-            </random>
-         </condition>
+         <random>
+            <li><set name='age'><star/></set> is a beautiful age. What do you do ?</li>
+            <li>How do you usually spend your time ?</li>
+         </random>
       </template>
    </category>
 
    <category>
       <pattern>* YEARS OLD</pattern>
       <template>
-         <srai>I'm <star/> years old</srai>
+         <srai>I'M <star/> YEARS OLD</srai>
       </template>
    </category>
 
    <category>
       <pattern>I GO TO *</pattern>
       <template>
-         <condition name='ocupation' value='null'>
             And how is <set name='ocupation'><star/></set> ?
-         </condition>
       </template>
    </category>
-
 </aiml>
