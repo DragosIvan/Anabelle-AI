@@ -8,7 +8,11 @@ angular.module('EDeC', ['ngCookies', 'ngResource', 'ngMessages', 'ngRoute', 'mgc
 				templateUrl: 'views/anabelle-ai.html',
 				controller: 'AnabelleCtrl'
 			})
+			.when('/queens', {
+				templateUrl: 'views/queens.html',
+				controller: 'QueensCtrl'
+			})
 		  	.otherwise({
-		    	redirectTo: '/homepage'
+		    	redirectTo: '/anabelle'
 		  	});
 	}])

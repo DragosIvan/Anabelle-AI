@@ -1,0 +1,7 @@
+<h2 data-ng-if='message'>{{message}}</h2>
+<div class='table-row' data-ng-repeat='row in finalMatrix track by $index'>
+	<div class='square' data-ng-repeat='col in row track by $index'>
+		<img data-ng-if='col != 0' src='../images/queen.png'>
+	</div>
+</div>
+
